@@ -1,30 +1,50 @@
-"use client"
-import { useState } from 'react';
-import Link from 'next/link';
-import { Navbar } from '@/components/Navbar';
+"use client";
+import { useEffect, useState } from "react";
+import Link from "next/link";
+import { Navbar } from "@/components/Navbar";
+import { useRouter } from "next/navigation";
+import { signIn, useSession } from "next-auth/react";
+
 
 const LoginPage: React.FC = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
+  const [Email, setEmail] = useState("");
+  const [Password, setPassword] = useState("");
+  const [error, setError] = useState("");
+  const router = useRouter();
+  const session = useSession();
 
-  const handleLogin = async (e: React.FormEvent) => {
+  useEffect(() => {
+    if(session?.status === "authenticated") {
+      router.replace("/dashboard");
+    }
+  }, [session, router])
+
+
+  const handleLogin = async (e: any) => {
     e.preventDefault();
 
     // Perform client-side validation
-    if (!email || !password) {
-      setError('Please enter both email and password');
+    if (!Email || !Password) {
+      setError("Please enter both email and password");
       return;
     }
 
-    // Perform authentication logic (e.g., API call) here
-    // For simplicity, this example assumes successful login
-    console.log('Authentication successful!');
+    const email = e.target[0].value;
+    const password = e.target[1].value;
 
-    // Reset form fields and error message
-    setEmail('');
-    setPassword('');
-    setError('');
+
+    const res = await signIn("credentials", {
+      redirect: false,
+      email,
+      password
+    });
+
+    if (res?.error) {
+      setError("Invalid email or password");
+      if (res?.url) router.replace("/dashboard");
+    } else {
+      setError("");
+    }
   };
 
   return (
@@ -32,47 +52,58 @@ const LoginPage: React.FC = () => {
       <Navbar />
       <div className="min-h-screen flex items-center justify-center bg-gray-50">
         <div className="max-w-md w-full p-8 bg-white shadow-md rounded-md">
-          <h1 className="text-center text-2xl font-bold mb-6">Login</h1>
+          <h1 className="text-center text-2xl font-bold mb-6">LOGIN</h1>
           <form onSubmit={handleLogin}>
             <div className="mb-4">
-              <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="email">
+              <label
+                className="block text-gray-700 text-sm font-bold mb-2"
+                htmlFor="email"
+              >
                 Email:
               </label>
               <input
                 type="email"
-                id="email"
                 className="w-full px-3 py-2 border border-gray-300 rounded-md"
-                value={email}
+                value={Email}
                 onChange={(e) => setEmail(e.target.value)}
+                required
               />
             </div>
             <div className="mb-4">
-              <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="password">
+              <label
+                className="block text-gray-700 text-sm font-bold mb-2"
+                htmlFor="password"
+              >
                 Password:
               </label>
               <input
                 type="password"
-                id="password"
                 className="w-full px-3 py-2 border border-gray-300 rounded-md"
-                value={password}
+                value={Password}
                 onChange={(e) => setPassword(e.target.value)}
+                minLength={8}
+                required
               />
             </div>
             <p>
               <Link href="/" legacyBehavior>
-                <a className=" hover:text-blue-500">
-              Forget Password?
-              </a>
+                <a className=" hover:text-blue-500">Forget Password?</a>
               </Link>
             </p>
             {error && <p className=" text-red-500 ">{error}</p>}
             <button
               type="submit"
-              className= " mt-4 w-full bg-blue-500 text-white py-2 rounded-md hover:bg-blue-600"
+              className=" mt-4 w-full bg-blue-500 text-white py-2 rounded-md hover:bg-blue-600"
             >
               Login
             </button>
           </form>
+          <p className="mt-2">
+            Need an account?{" "}
+            <Link href="/signup" legacyBehavior>
+              <a className="hover:text-blue-500">here</a>
+            </Link>
+          </p>
         </div>
       </div>
     </>

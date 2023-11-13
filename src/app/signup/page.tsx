@@ -43,7 +43,7 @@ const SignupPage: React.FC = () => {
       <Navbar />
       <div className="min-h-screen flex items-center justify-center bg-gray-50">
         <div className="max-w-md w-full p-8 bg-white shadow-md rounded-md">
-          <h1 className="text-center text-2xl font-bold mb-6">Sign Up</h1>
+          <h1 className="text-center text-2xl font-bold mb-6">SIGN UP</h1>
           <form onSubmit={handleSignup}>
             <div className="mb-4">
               <label
@@ -69,6 +69,7 @@ const SignupPage: React.FC = () => {
               <input
                 type="password"
                 className="w-full px-3 py-2 border border-gray-300 rounded-md"
+                minLength={8}
                 required
               />
             </div>
