@@ -98,6 +98,14 @@ const LoginPage: React.FC = () => {
               Login
             </button>
           </form>
+          <button
+            className="w-full bg-black text-white py-2 rounded hover:bg-gray-800"
+            onClick={() => {
+              signIn("github");
+            }}
+          >
+            Sign In with Github
+          </button>
           <p className="mt-2">
             Need an account?{" "}
             <Link href="/signup" legacyBehavior>
