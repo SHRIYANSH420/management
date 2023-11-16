@@ -46,13 +46,8 @@ const SignupPage: React.FC = () => {
           <h1 className="text-center text-2xl font-bold mb-6">SIGN UP</h1>
           <form onSubmit={handleSignup}>
             <div className="mb-4">
-              <label
-                className="block text-gray-700 text-sm font-bold mb-2"
-                htmlFor="email"
-              >
-                Email:
-              </label>
               <input
+              placeholder="Email"
                 type="email"
                 id="email"
                 className="w-full px-3 py-2 border border-gray-300 rounded-md"
@@ -60,13 +55,8 @@ const SignupPage: React.FC = () => {
               />
             </div>
             <div className="mb-4">
-              <label
-                className="block text-gray-700 text-sm font-bold mb-2"
-                htmlFor="password"
-              >
-                Password:
-              </label>
               <input
+              placeholder="Password"
                 type="password"
                 className="w-full px-3 py-2 border border-gray-300 rounded-md"
                 minLength={8}
@@ -74,13 +64,8 @@ const SignupPage: React.FC = () => {
               />
             </div>
             <div className="mb-4">
-              <label
-                className="block text-gray-700 text-sm font-bold mb-2"
-                htmlFor="confirmPassword"
-              >
-                Confirm Password:
-              </label>
               <input
+              placeholder="Confirm Password"
                 type="password"
                 className="w-full px-3 py-2 border border-gray-300 rounded-md"
               />
