@@ -11,8 +11,9 @@ const SignupPage: React.FC = () => {
   const handleSignup = async (e: any) => {
     e.preventDefault();
 
-    const email = e.target[0].value;
-    const password = e.target[1].value;
+    const name = e.target[0].value;
+    const email = e.target[1].value;
+    const password = e.target[2].value;
 
     try {
       const res = await fetch("/api/signup", {
@@ -21,6 +22,7 @@ const SignupPage: React.FC = () => {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
+          name,
           email,
           password,
         }),
@@ -45,6 +47,15 @@ const SignupPage: React.FC = () => {
         <div className="max-w-md w-full p-8 bg-white shadow-md rounded-md">
           <h1 className="text-center text-2xl font-bold mb-6">SIGN UP</h1>
           <form onSubmit={handleSignup}>
+          <div className="mb-4">
+              <input
+              placeholder="Name"
+                type="string"
+                id="name"
+                className="w-full px-3 py-2 border border-gray-300 rounded-md"
+                required
+              />
+            </div>
             <div className="mb-4">
               <input
               placeholder="Email"

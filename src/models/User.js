@@ -5,6 +5,11 @@ const { Schema } = mongoose;
 // Create a Mongoose Schema
 const userSchema = new Schema(
   {
+    name: {
+      type: String,
+      required: [true, "Name field is required."],
+      minLength: [2, "Name must be 2 character long."],
+    },
     email: {
       type: String,
       required: true,
@@ -17,10 +22,7 @@ const userSchema = new Schema(
     resetToken: {
       type: String,
       required: false,
-    },
-    resetTokenExpiry: {
-      type: Date,
-      required: false,
+      trim: true,
     },
   },
   { timestamps: true }

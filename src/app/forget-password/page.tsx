@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 import { signIn, useSession } from "next-auth/react";
 
 const ForgetPage: React.FC = () => {
+  const [Email, setEmail] = useState("");
   const [error, setError] = useState("");
   const router = useRouter();
   // const session = useSession();
@@ -75,6 +76,7 @@ const ForgetPage: React.FC = () => {
                   type="email"
                   className="mt-6 w-full px-3 py-2 border border-gray-300 rounded-md"
                   placeholder="Email"
+                  onChange={(e) => setEmail(e.target.value)}
                   required
                 />
               </div>
