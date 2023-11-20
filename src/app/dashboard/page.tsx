@@ -10,7 +10,7 @@ const Dashboard = async () => {
   }
   return (
   <div>
-    <Navbar />
+    Dashboard
     </div>
   )
 }
