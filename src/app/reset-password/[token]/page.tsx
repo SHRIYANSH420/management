@@ -66,9 +66,9 @@ export default function ResetPage({ params,
     sessionStatus !== "authenticated" && (
       <>
         <Navbar />
-        <div className="min-h-screen flex items-center justify-center bg-gray-50">
+        <div className="min-h-screen flex items-center justify-center bg-#182237-50">
           <div className="max-w-md w-full p-8 bg-white shadow-md rounded-md">
-            <h1 className="text-center text-2xl font-bold mb-6">
+            <h1 className="text-center text-2xl font-bold mb-6 text-black">
               Reset-Password
             </h1>
             <form onSubmit={handleReset}>
@@ -76,7 +76,7 @@ export default function ResetPage({ params,
                 <input
                   placeholder="Password"
                   type="password"
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md text-black"
                   onChange={(e) =>
                     setAuthState({ ...authState, password: e.target.value })
                   }

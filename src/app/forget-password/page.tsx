@@ -66,15 +66,15 @@ const ForgetPage: React.FC = () => {
     sessionStatus !== "authenticated" && (
       <>
         <Navbar />
-        <div className="min-h-screen flex items-center justify-center bg-gray-50">
+        <div className="min-h-screen flex items-center justify-center ">
           <div className="max-w-md w-full p-8 bg-white shadow-md rounded-md">
-            <h1 className="text-center text-2xl font-bold mb-6">Forget-Password</h1>
+            <h1 className="text-center text-2xl font-bold mb-6 text-black">Forget-Password</h1>
             <form onSubmit={handleForget}>
               <div className="mb-4">
                 
                 <input
                   type="email"
-                  className="mt-6 w-full px-3 py-2 border border-gray-300 rounded-md"
+                  className="mt-6 w-full px-3 py-2 border border-gray-300 rounded-md text-black"
                   placeholder="Email"
                   onChange={(e) => setEmail(e.target.value)}
                   required
@@ -88,7 +88,7 @@ const ForgetPage: React.FC = () => {
                 Submit
               </button>
             </form>
-            <p className="mt-2">
+            <p className="mt-2 text-black">
               Login {" "}
               <Link href="/login" legacyBehavior>
                 <a className="hover:text-blue-500">here</a>

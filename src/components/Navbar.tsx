@@ -6,7 +6,7 @@ import { signOut, useSession } from "next-auth/react";
 export const Navbar = () => {
   const { data: session }: any = useSession();
   return (
-    <header className="text-gray-600 body-font">
+    <header className="text-gray-600 body-font bg-gray-50">
       <div className="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
         <a className="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
           <svg

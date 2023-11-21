@@ -53,16 +53,16 @@ const LoginPage: React.FC = () => {
     sessionStatus !== "authenticated" && (
       <>
         <Navbar />
-        <div className="min-h-screen flex items-center justify-center bg-gray-50">
+        <div className="min-h-screen flex items-center justify-center bg-#182237-50">
           <div className="max-w-md w-full p-8 bg-white shadow-md rounded-md">
-            <h1 className="text-center text-2xl font-bold mb-6">LOGIN</h1>
+            <h1 className="text-center text-2xl font-bold mb-6 text-black">LOGIN</h1>
             <form onSubmit={handleLogin}>
               <div className="mb-4">
                 
                 <input
                 placeholder="Email"
                   type="email"
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md"
+                  className="text-black w-full px-3 py-2 border border-gray-300 rounded-md"
                   value={Email}
                   onChange={(e) => setEmail(e.target.value)}
                   required
@@ -73,7 +73,7 @@ const LoginPage: React.FC = () => {
                 <input
                 placeholder="Password"
                   type="password"
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md"
+                  className="text-black w-full px-3 py-2 border border-gray-300 rounded-md"
                   value={Password}
                   onChange={(e) => setPassword(e.target.value)}
                   minLength={8}
@@ -82,7 +82,7 @@ const LoginPage: React.FC = () => {
               </div>
               <p>
                 <Link href="/forget-password" legacyBehavior>
-                  <a className=" hover:text-blue-500">Forget Password?</a>
+                  <a className="text-black hover:text-blue-500">Forget Password?</a>
                 </Link>
               </p>
               {error && <p className=" text-red-500 ">{error}</p>}
@@ -93,7 +93,7 @@ const LoginPage: React.FC = () => {
                 Login
               </button>
             </form>
-            <p className="mt-2">
+            <p className="mt-2 text-black">
               Need an account?{" "}
               <Link href="/signup" legacyBehavior>
                 <a className="hover:text-blue-500">here</a>

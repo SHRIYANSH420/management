@@ -43,16 +43,16 @@ const SignupPage: React.FC = () => {
   return (
     <>
       <Navbar />
-      <div className="min-h-screen flex items-center justify-center bg-gray-50">
+      <div className="min-h-screen flex items-center justify-center bg-#182237-50">
         <div className="max-w-md w-full p-8 bg-white shadow-md rounded-md">
-          <h1 className="text-center text-2xl font-bold mb-6">SIGN UP</h1>
+          <h1 className="text-center text-2xl font-bold mb-6 text-black">SIGN UP</h1>
           <form onSubmit={handleSignup}>
           <div className="mb-4">
               <input
               placeholder="Name"
                 type="string"
                 id="name"
-                className="w-full px-3 py-2 border border-gray-300 rounded-md"
+                className="w-full px-3 py-2 border border-gray-300 rounded-md text-black"
                 required
               />
             </div>
@@ -61,7 +61,7 @@ const SignupPage: React.FC = () => {
               placeholder="Email"
                 type="email"
                 id="email"
-                className="w-full px-3 py-2 border border-gray-300 rounded-md"
+                className="w-full px-3 py-2 border border-gray-300 rounded-md text-black"
                 required
               />
             </div>
@@ -69,7 +69,7 @@ const SignupPage: React.FC = () => {
               <input
               placeholder="Password"
                 type="password"
-                className="w-full px-3 py-2 border border-gray-300 rounded-md"
+                className="w-full px-3 py-2 border border-gray-300 rounded-md text-black"
                 minLength={8}
                 required
               />
@@ -78,7 +78,7 @@ const SignupPage: React.FC = () => {
               <input
               placeholder="Confirm Password"
                 type="password"
-                className="w-full px-3 py-2 border border-gray-300 rounded-md"
+                className="w-full px-3 py-2 border border-gray-300 rounded-md text-black"
               />
             </div>
             {error && <p className="text-red-500 mb-4">{error}</p>}
@@ -89,7 +89,7 @@ const SignupPage: React.FC = () => {
               Sign Up
             </button>
           </form>
-          <p className="mt-2">
+          <p className="mt-2 text-black">
             Already have an account?{" "}
             <Link href="/login" legacyBehavior>
               <a className="hover:text-red-500">Login here</a>
