@@ -7,7 +7,7 @@ import User from "@/models/User";
 import bcrypt from "bcryptjs";
 
 
-
+ 
 export const authOptions:any = {
 
 providers: [
