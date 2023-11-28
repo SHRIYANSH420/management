@@ -2,12 +2,7 @@
 import { usePathname } from "next/navigation";
 import styles from "./dnavbar.module.css";
 import { useSession } from "next-auth/react";
-import {
-  MdNotifications,
-  MdOutlineChat,
-  MdPublic,
-  MdSearch,
-} from "react-icons/md";
+
 
 const Dnavbar = () => {
   const pathname = usePathname();

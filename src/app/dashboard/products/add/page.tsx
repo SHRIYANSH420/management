@@ -1,15 +1,17 @@
+
 import React from "react";
 import styles from "@/app/ui/dashboard/products/addProduct/addProduct.module.css";
+import { addProduct } from "@/app/api/action/route";
 
 const AddProductPage = () => {
   return (
     <div className={styles.container}>
-      <form className={styles.form}>
+      <form action={addProduct} className={styles.form} >
         <input type="text" placeholder="title" name="title" required />
         <select name="cat" id="cat">
-          <option value="kitchen">Choose a Category</option>
-          <option value="kitchen">Phone</option>
-          <option value="kitchen">Computer</option>
+          <option value="general">Choose a Category</option>
+          <option value="phone">Phone</option>
+          <option value="computer">Computer</option>
           <option value="kitchen">Kitchen</option>
         </select>
         <input type="number" placeholder="price" name="price" required />
@@ -17,10 +19,10 @@ const AddProductPage = () => {
         <input type="text" placeholder="color" name="color" />
         <input type="text" placeholder="size" name="size" />
         <textarea
+          required
           name="desc"
           id="desc"
-          cols="30"
-          rows="10"
+          rows="16"
           placeholder="Description"
         ></textarea>
         <button type="submit">Submit</button>
