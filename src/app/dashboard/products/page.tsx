@@ -6,8 +6,15 @@ import Link from "next/link";
 import Pagination from "@/app/ui/dashboard/pagination/pagination";
 import { fetchProducts } from "@/app/api/data/route";
 import { deleteProduct } from "@/app/api/action/route";
+import { redirect } from "next/navigation";
+import { getServerSession } from "next-auth";
 
 const ProductPage = async ({ searchParams }) => {
+
+  const session = await getServerSession();
+ if (!session) {
+  redirect("/");
+}
   const q = searchParams?.q || "";
   const page = searchParams?.page || 1;
   const { count, products } = await fetchProducts(q, page);

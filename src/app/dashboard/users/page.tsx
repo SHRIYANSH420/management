@@ -6,8 +6,15 @@ import Link from "next/link";
 import Pagination from "@/app/ui/dashboard/pagination/pagination";
 import { fetchEmpData, fetchEmpCount } from "@/app/api/data/route";
 import { deleteUser } from "@/app/api/action/route";
+import { getServerSession } from "next-auth";
+import { redirect } from "next/navigation";
+
 
 const UserPage = async ({ searchParams }) => {
+ const session = await getServerSession();
+ if (!session) {
+  redirect("/");
+}
   const q = searchParams?.q || "";
   const page = searchParams?.page || 1;
   const { count, employee } = {
