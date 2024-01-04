@@ -4,10 +4,10 @@ import { Product } from "@/models/Product";
 
 export const fetchEmpCount = async (q) => {
   const regex = new RegExp(q, "i");
-
   try {
     connect();
     const count = await Employee.find({ username: { $regex: regex } }).count();
+    console.log(count);
     return count;
   } catch (err) {
     console.error(err);
@@ -32,9 +32,20 @@ export const fetchEmpData = async (q, page) => {
   }
 };
 
+export const CountProducts = async (q) => {
+  const regex = new RegExp(q, "i");
+  try {
+    connect();
+    const count = await Product.find({ title: { $regex: regex } }).count();
+    return count;
+  } catch (err) {
+    console.log(err);
+    throw new Error("Failed to fetch products!");
+  }
+};
+
 
 export const fetchProducts = async (q, page) => {
-  console.log(q);
   const regex = new RegExp(q, "i");
 
   const ITEM_PER_PAGE = 6;
@@ -74,4 +85,3 @@ export const fetchProduct = async (id) => {
     throw new Error("Failed to fetch product!");
   }
 };
-

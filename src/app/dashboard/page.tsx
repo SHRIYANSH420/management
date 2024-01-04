@@ -3,6 +3,7 @@ import React from "react";
 import { getServerSession } from "next-auth";
 import { redirect } from "next/navigation";
 import Card from "../ui/dashboard/card/card";
+import Card1 from "../ui/dashboard/card1/card";
 import style from "../ui/dashboard/dashboard.module.css";
 import Chart from "../ui/dashboard/chart/chart";
 
@@ -16,7 +17,7 @@ const Dashboard = async () => {
       <div className={style.main}>
         <div className={style.cards}>
           <Card />
-          <Card />
+          <Card1 />
         </div>
         <Chart />
       </div>

@@ -42,11 +42,6 @@ const menuItems = [
     title: "Analytics",
     list: [
       {
-        title: "Revenue",
-        path: "/dashboard/revenue",
-        icon: <MdWork />,
-      },
-      {
         title: "Reports",
         path: "/dashboard/reports",
         icon: <MdAnalytics />,
@@ -57,12 +52,12 @@ const menuItems = [
     title: "User",
     list: [
       {
-        title: "Contact",
+        title: "Contact us",
         path: "/dashboard/settings",
         icon: <MdOutlineSettings />,
       },
       {
-        title: "AboutUs",
+        title: "About us",
         path: "/dashboard/help",
         icon: <MdHelpCenter />,
       },
