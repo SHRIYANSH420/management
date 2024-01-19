@@ -15,7 +15,7 @@ export default function ForgotPasswordEmail({
     <Html>
       <Heading as="h2"> Hello {params.name} </Heading>
       <Text>
-        We received the reset password request. if it's not you then please ignore it.
+        We received the reset password request. if it&apos;s not you then please ignore it.
       </Text>
       <Button
         href={params.url}

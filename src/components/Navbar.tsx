@@ -32,12 +32,6 @@ export const Navbar = () => {
               <Link href="/signup" className="mr-5 hover:text-gray-900">
                 SignUp
               </Link>
-              <Link href="/aboutus" className="mr-5 hover:text-gray-900">
-                About Us
-              </Link>
-              <Link href="/contactus" className="mr-5 hover:text-gray-900">
-                Contact Us
-              </Link>
             </>
           ) : (
             <>
